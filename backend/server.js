@@ -8,6 +8,13 @@ const PORT = 4000;
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Job Board Backend is running successfully!",
+  });
+});
+
 // GET all jobs (with optional query filters)
 app.get("/api/jobs", (req, res) => {
   let result = [...jobs];
@@ -79,5 +86,5 @@ app.get("/api/meta/filters", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Job Board API running at http://localhost:${PORT}`);
+  console.log(`Job Board API running at ${PORT} port`);
 });
