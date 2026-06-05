@@ -1,0 +1,44 @@
+.saved-jobs-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.saved-jobs-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.saved-jobs-search-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.saved-jobs-search {
+  flex: 1;
+  max-width: 420px;
+  min-width: 280px;
+}
+
+.saved-jobs-count-summary {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .saved-jobs-search-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .saved-jobs-count-summary {
+    text-align: right;
+  }
+}

@@ -1,0 +1,223 @@
+.job-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  position: relative;
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+}
+
+.job-card:hover {
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-card);
+}
+
+/* Featured State */
+.job-card--featured {
+  border-color: rgba(124, 106, 247, 0.2);
+  box-shadow: 0 4px 20px rgba(124, 106, 247, 0.05);
+}
+
+.job-card--featured:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+
+.job-card__header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Header Section */
+.job-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+.job-card__company-logo {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-card__company-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.job-card__company-logo-placeholder {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent-bright);
+  z-index: 1;
+}
+
+.job-card__bookmark-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.job-card__bookmark-btn:hover {
+  background: var(--border-strong);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.job-card__bookmark-btn--active {
+  background: var(--accent-dim);
+  color: var(--accent-bright);
+  border-color: var(--accent);
+}
+
+.job-card__bookmark-btn--active:hover {
+  background: rgba(124, 106, 247, 0.25);
+  color: var(--accent-bright);
+}
+
+/* Body / Text Content */
+.job-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.job-card__company-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.job-card__role {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 4px;
+  transition: color var(--transition-fast);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.job-card:hover .job-card__role {
+  color: #fff;
+}
+
+.job-card__location {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/* Badges & Details Row */
+.job-card__details {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.job-card__salary {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-left: auto;
+}
+
+.job-card__divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+/* Footer Section */
+.job-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  gap: 8px;
+}
+
+.job-card__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.job-card__skill-tag {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.job-card__skill-tag--more {
+  color: var(--text-muted);
+}
+
+.job-card__posted-time {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .job-card__salary {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 4px;
+  }
+}

@@ -1,0 +1,221 @@
+.navbar {
+  height: var(--navbar-height);
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  width: 100%;
+  padding: 0;
+}
+
+.navbar__container {
+  max-width: 1400px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.navbar__subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar__date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.navbar__date svg {
+  color: var(--text-muted);
+}
+
+.navbar__notification-wrapper {
+  position: relative;
+}
+
+.navbar__notification-btn {
+  position: relative;
+}
+
+.navbar__notification-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  border: 1.5px solid var(--bg-elevated);
+}
+
+.navbar__dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 320px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elevated);
+  overflow: hidden;
+  z-index: 120;
+}
+
+.navbar__dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.navbar__dropdown-header h3 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.navbar__dropdown-clear {
+  font-size: 11px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.navbar__dropdown-clear:hover {
+  color: var(--text-primary);
+}
+
+.navbar__notification-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.navbar__notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background var(--transition-fast);
+}
+
+.navbar__notification-item:last-child {
+  border-bottom: none;
+}
+
+.navbar__notification-item:hover {
+  background: var(--bg-card-hover);
+}
+
+.navbar__notification-item.unread {
+  background: rgba(124, 106, 247, 0.04);
+}
+
+.navbar__notif-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  margin-top: 6px;
+  opacity: 0;
+  flex-shrink: 0;
+}
+
+.navbar__notification-item.unread .navbar__notif-bullet {
+  opacity: 1;
+}
+
+.navbar__notif-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.navbar__notif-text {
+  font-size: 12px;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 2px;
+}
+
+.navbar__notif-time {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.navbar__avatar-link {
+  display: flex;
+}
+
+.navbar__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #b88fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid rgba(124, 106, 247, 0.3);
+  transition: transform var(--transition-fast);
+}
+
+.navbar__avatar:hover {
+  transform: scale(1.05);
+}
+
+.navbar__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .navbar__container {
+    padding: 0 16px;
+  }
+  .navbar__date {
+    display: none;
+  }
+}
