@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import FilterPanel from '../../components/FilterPanel/FilterPanel';
 import JobCard from '../../components/JobCard/JobCard';
+import API_BASE_URL from '../../config/api';
 import './Dashboard.css';
 
 const INITIAL_FILTERS = {
@@ -31,19 +32,19 @@ function Dashboard() {
       try {
         setLoading(true);
         // Fetch filters metadata
-        const metaRes = await fetch('/api/meta/filters');
+        const metaRes = await fetch(`${API_BASE_URL}/api/meta/filters`);
         if (!metaRes.ok) throw new Error('Failed to fetch filter metadata');
         const metaData = await metaRes.json();
         setMeta(metaData);
 
         // Fetch all jobs
-        const jobsRes = await fetch('/api/jobs');
+        const jobsRes = await fetch(`${API_BASE_URL}/api/jobs`);
         if (!jobsRes.ok) throw new Error('Failed to fetch jobs');
         const jobsData = await jobsRes.json();
         setAllJobs(jobsData.jobs || []);
 
         // Fetch featured list
-        const featRes = await fetch('/api/jobs/featured/list');
+        const featRes = await fetch(`${API_BASE_URL}/api/jobs/featured/list`);
         if (featRes.ok) {
           const featData = await featRes.json();
           setFeaturedJobs(featData.jobs || []);

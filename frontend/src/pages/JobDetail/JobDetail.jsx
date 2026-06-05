@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import JobCard from '../../components/JobCard/JobCard';
+import API_BASE_URL from '../../config/api';
 import './JobDetail.css';
 
 function JobDetail() {
@@ -32,7 +33,7 @@ function JobDetail() {
         setError(null);
         
         // Fetch current job
-        const res = await fetch(`/api/jobs/${id}`);
+        const res = await fetch(`${API_BASE_URL}/api/jobs/${id}`);
         if (!res.ok) {
           if (res.status === 404) throw new Error('Job posting not found');
           throw new Error('Failed to fetch job details');
@@ -48,7 +49,7 @@ function JobDetail() {
         setHasApplied(applied.includes(jobData.id));
 
         // Fetch similar jobs (same department)
-        const allRes = await fetch('/api/jobs');
+        const allRes = await fetch(`${API_BASE_URL}/api/jobs`);
         if (allRes.ok) {
           const allData = await allRes.json();
           const filtered = (allData.jobs || [])
